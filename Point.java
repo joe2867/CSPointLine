@@ -39,5 +39,8 @@ public class Point{
 
 
     public static void main(String[] args){
+        Point x1 = new Point(3,4);
+        Point x2 = new Point(-5,7);
+        System.out.print(x1.ManhattenDistance(x2));
     }
 }
