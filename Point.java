@@ -1,6 +1,6 @@
 public class Point{
-    int myX;
-    int myY;
+    private int myX;
+    private int myY;
     
     public Point(int x, int y){
         myX = x;
@@ -34,30 +34,33 @@ public class Point{
     }
 
 
+    public boolean isCollinear(Point o1, Point o2){
+        boolean r = false;
+        double slope1;
+        double slope2;
+        int x1 = getX();
+        int y1 = getY();
+        int x2 = o1.getX();
+        int y2 = o1.getY();
+        int x3 = o2.getX();
+        int y3 = o2.getY();
 
-    public boolean isCollinear(Point p1, Point p2){
-        boolean b = false;
-        
-        double s1 = (p1.getY() - myY) / (p1.getX() - myX);
-
-        double s2 = (p2.getY() - myY) / (p2.getX() - myX);
-        if(s1 == s2){
-            b = true;
+        if(x2 - x1 == 0){
+            throw new IllegalArgumentException("undefined slope");
+        }
+        if(x3 - x1 == 0){
+            throw new IllegalArgumentException("undefined slope");
+        }
+        slope1 = (y2 - y1) / (x2 - x1);
+        slope2 = (y3 - y1) / (x3 - x1);
+        if(slope1 == slope2){
+            r = true;
         }
 
 
-        return b;
-
+        return r;
     }
 
 
-
-
-
-
-    public static void main(String[] args){
-        Point x1 = new Point(3,4);
-        Point x2 = new Point(-5,7);
-        System.out.print(x1.ManhattenDistance(x2));
-    }
 }
+

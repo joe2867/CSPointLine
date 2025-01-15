@@ -21,19 +21,28 @@ public class Line {
     }
 
     public String toString(){
-        return "p1(" + l1.getX() + "," + l1.getY() + ") p2(" + l2.getX() + "," + l2.getY();
+        return ( "p1(" + l1.getX() + "," + l1.getY() + ") p2(" + l2.getX() + "," + l2.getY() + ")");
+     
     }
     public double getSlope(){
-        int x = (l2.getX() - l1.getX());
+        double x = (l2.getX() - l1.getX());
         if(x == 0){
             throw new IllegalArgumentException("undefind");
         }
-        int y = (l2.getY() - l1.getY());
+        double y = (l2.getY() - l1.getY());
         return y / x;
     }
 
     public boolean isCollinear(Point p){
         boolean b = false;
+
+
+        if(l2.getX() - l1.getX() == 0){
+            throw new IllegalArgumentException("undefined slope");
+        }
+        if(p.getX() - l2.getX() == 0){
+            throw new IllegalArgumentException("undefined slope");
+        }
 
         double s1 = (l2.getY() - l1.getY()) / (l2.getX() - l1.getX());
 
@@ -46,4 +55,6 @@ public class Line {
 
         return b;
     }
+
+
 }
