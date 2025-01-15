@@ -35,6 +35,23 @@ public class Point{
 
 
 
+    public boolean isCollinear(Point p1, Point p2){
+        boolean b = false;
+        
+        double s1 = (p1.getY() - myY) / (p1.getX() - myX);
+
+        double s2 = (p2.getY() - myY) / (p2.getX() - myX);
+        if(s1 == s2){
+            b = true;
+        }
+
+
+        return b;
+
+    }
+
+
+
 
 
 

@@ -24,6 +24,26 @@ public class Line {
         return "p1(" + l1.getX() + "," + l1.getY() + ") p2(" + l2.getX() + "," + l2.getY();
     }
     public double getSlope(){
-        
+        int x = (l2.getX() - l1.getX());
+        if(x == 0){
+            throw new IllegalArgumentException("undefind");
+        }
+        int y = (l2.getY() - l1.getY());
+        return y / x;
+    }
+
+    public boolean isCollinear(Point p){
+        boolean b = false;
+
+        double s1 = (l2.getY() - l1.getY()) / (l2.getX() - l1.getX());
+
+        double s2 = (p.getY() - l2.getY()) / (p.getX() - l2.getX());
+        if(s1 == s2){
+            b = true;
+        }
+
+
+
+        return b;
     }
 }
